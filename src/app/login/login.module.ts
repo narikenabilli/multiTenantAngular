@@ -6,8 +6,6 @@ import { Client1loginService } from './client1login.service';
 import { Client2loginService } from './client2login.service';
 import { RouterModule, Routes, Router } from "@angular/router";
 
-
-
 @NgModule({
   declarations: [],
   imports: [
