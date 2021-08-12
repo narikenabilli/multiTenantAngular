@@ -1,18 +1,12 @@
-<div class="header color">
-  <h1>Registration Form {{ tenant }}</h1>
-</div>
-
-<app-common-form
-  [dynamicFormArray]="dynamicFormArray"
-  [tenant]="tenant"
-></app-common-form>
-
-<!-- <section>
+<section>
   <form id="form">
     <div class="row form">
       <div class="col-md-12" *ngFor="let control of dynamicFormArray">
         <div
-          *ngIf="control.Tenant == tenantName || control.Tenant == 'default'"
+          *ngIf="
+            control.Allow &&
+            (control.Tenant == tenant || control.Tenant == 'default')
+          "
         >
           <div [ngSwitch]="control.Type">
             <div *ngSwitchCase="'input'">
@@ -74,4 +68,4 @@
       </div>
     </div>
   </form>
-</section> -->
+</section>

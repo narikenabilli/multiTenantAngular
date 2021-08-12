@@ -1,3 +1,3 @@
 <p class="message">Welcome Tenant {{ tenant }}</p>
 
-<app-registrationform [tenant]="tenant"></app-registrationform>
+<app-registrationform [tenant]="tenant" *ngIf="loadComponent"></app-registrationform>

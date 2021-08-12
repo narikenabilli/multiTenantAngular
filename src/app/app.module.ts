@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
+import { CommonFormComponent } from './components/common-form/common-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationformComponent
+    RegistrationformComponent,
+    CommonFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { CommonService } from './../services/utility/common.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { TenantService } from '../tenant/tenant.service';
@@ -13,14 +14,11 @@ export class RegistrationformComponent implements OnInit {
   @Input() tenant;
   tenantName: any;
 
-  constructor(private httpClient: HttpClient, private tenantService: TenantService) { }
+  constructor(private httpClient: HttpClient, private tenantService: TenantService, private commonService: CommonService) { }
 
   ngOnInit() {
-    this.httpClient.get('/assets/DynamicFormControl.json').subscribe(data => {
-      this.dynamicFormArray = data;
-      this.tenantName = this.tenant;
-      console.log(this.dynamicFormArray);
-    });
+    const regFormData = this.commonService.getFormData();
+    this.dynamicFormArray = regFormData["registrationForm"];
   }
 
 }

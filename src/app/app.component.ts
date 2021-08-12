@@ -1,7 +1,8 @@
+import { CommonService } from './services/utility/common.service';
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, HostBinding } from "@angular/core";
+import { forkJoin } from "rxjs";
 import { Tenant, TenantService } from './tenant/tenant.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,11 @@ export class AppComponent implements OnInit {
   clientConfiguration: any;
   setTenantData: any;
 
-  constructor(private tenantService: TenantService, private httpClient: HttpClient){
+  dynamicFormArray: any;
+  tenantName: any;
+  loadComponent: boolean;
+
+  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService){
   }
 
   @HostBinding("class.theme-client1") public client1Theme: boolean;
@@ -21,16 +26,25 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    this.httpClient.get('/assets/ClientConfiguration.json').subscribe((data: any) => {
-      this.clientConfiguration = data;
-      this.setTenantData = this.clientConfiguration[this.tenantService.getTenant()];
-      console.log(this.clientConfiguration);
-    });
+    const observableArray = [];
 
-    console.log(this.setTenantData, "TenantData");
+    observableArray.push(this.httpClient.get('/assets/ClientConfiguration.json'));
+    observableArray.push(this.httpClient.get('/assets/DynamicFormControl.json'));
+
+    forkJoin(observableArray).subscribe((res: any) => {
+      if (res && res[0]) {
+        this.commonService.setClientConfig(res[0]);
+      }
+      if (res && res[1]) {
+        this.commonService.setFormData(res[1]);
+      }
+      this.loadComponent = true;
+    });
 
     this.enableThemes();
   }
+
+
 
   get tenant() : string {
     return this.tenantService.getTenant();
