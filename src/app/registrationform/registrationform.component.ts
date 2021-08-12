@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TenantService } from '../tenant/tenant.service';
 
 @Component({
   selector: 'app-registrationform',
@@ -9,13 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationformComponent implements OnInit {
 
   dynamicFormArray: any;
+  @Input() tenant;
+  tenantName: any;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private tenantService: TenantService) { }
 
   ngOnInit() {
     this.httpClient.get('/assets/DynamicFormControl.json').subscribe(data => {
       this.dynamicFormArray = data;
-      console.log(this.dynamicFormArray);
+      this.tenantName = this.tenant;
+      console.log(this.tenantName);
     });
   }
 
