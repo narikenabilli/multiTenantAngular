@@ -19,7 +19,7 @@ export class RegistrationformComponent implements OnInit {
     this.httpClient.get('/assets/DynamicFormControl.json').subscribe(data => {
       this.dynamicFormArray = data;
       this.tenantName = this.tenant;
-      console.log(this.tenantName);
+      console.log(this.dynamicFormArray);
     });
   }
 

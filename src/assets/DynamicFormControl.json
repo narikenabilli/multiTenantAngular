@@ -4,6 +4,7 @@
     "Tenant": "client1",
     "Label": "First Name",
     "Type": "input",
+    "ClassName": "borderStyle",
     "Value": ""
   },
   {
