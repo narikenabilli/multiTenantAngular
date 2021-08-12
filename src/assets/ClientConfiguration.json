@@ -1,0 +1,16 @@
+{
+  "client1": {
+    "logo": "../assets/logo",
+    "logoutUrl": "www.google.com",
+    "About": "Client1 Content",
+    "sessionTimeout": 30000,
+    "warningTimeout": 15000
+  },
+  "client2": {
+    "logo": "../assets/logo",
+    "logoutUrl": "www.google.com",
+    "About": "Client2 Content",
+    "sessionTimeout": 20000,
+    "warningTimeout": 10000
+  }
+}

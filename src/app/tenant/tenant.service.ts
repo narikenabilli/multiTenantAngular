@@ -8,7 +8,7 @@ export class TenantService {
   constructor() {}
 
   getTenantForHostname(hostname: string): Tenant {
-    return this.getTenantForHost(hostname.split(".")[0]);
+    return this.getTenantForHost(hostname.split(".")[0]) ? this.getTenantForHost(hostname.split(".")[0]) : Tenant.CLIENT1 ;
   }
 
   getTenantForString(s: string) {
