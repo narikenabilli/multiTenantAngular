@@ -1,7 +1,5 @@
-import { CommonService } from './../services/utility/common.service';
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { TenantService } from '../tenant/tenant.service';
+import { CommonService } from './../services/utility/common.service';
 
 @Component({
   selector: 'app-registrationform',
@@ -14,7 +12,7 @@ export class RegistrationformComponent implements OnInit {
   @Input() tenant;
   tenantName: any;
 
-  constructor(private httpClient: HttpClient, private tenantService: TenantService, private commonService: CommonService) { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
     const regFormData = this.commonService.getFormData();
