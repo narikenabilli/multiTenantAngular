@@ -14,16 +14,26 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" (click)="navigation('template-driven')"
-          >Template Driven
+        <a class="nav-link" (click)="navigation('template-driven')">
+          {{ "Template_Driven" | translate }}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="navigation('reactive-form')"
-          >Reactive Form</a
-        >
+        <a class="nav-link" (click)="navigation('reactive-form')">
+          {{ "Reactive_Form" | translate }}
+        </a>
       </li>
     </ul>
+    <div class="right">
+      <ul class="navbar-nav">
+        <li class="nav-item flex-end">
+          <select name="language" id="language" (change)="changeLang($event)">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+          </select>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 

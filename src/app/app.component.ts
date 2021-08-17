@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, HostBinding } from "@angular/core";
 import { forkJoin } from "rxjs";
 import { Tenant, TenantService } from './tenant/tenant.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   tenantName: any;
   loadComponent: boolean;
 
-  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router){
+  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService,){
   }
 
   //applying the theme using Angular host binding
@@ -27,6 +28,13 @@ export class AppComponent implements OnInit {
   @HostBinding("class.theme-client2") public client2Theme: boolean;
 
   ngOnInit() {
+
+    // for language
+    this.translate.addLangs(['en', 'fr']);
+    this.translate.setDefaultLang('en');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+
 
     const observableArray = [];
 
@@ -67,5 +75,9 @@ export class AppComponent implements OnInit {
   navigation(event){
     console.log(event, "event");
     this.router.navigate([event], { state: { tenant: this.tenant } })
+  }
+
+  changeLang(event: any){
+     this.translate.use(event.target.value)
   }
 }
