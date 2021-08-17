@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+/** these styles are being applied/ called from DB (reffered in json file), these are global styles */
+
 .borderStyle {
   border: solid 1px red;
 }

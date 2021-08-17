@@ -6,6 +6,7 @@ import { Injectable, Input } from '@angular/core';
 export class CommonService {
   formData: any;
   clientData: any;
+  validationData: any;
 
   constructor() { }
 
@@ -22,4 +23,12 @@ export class CommonService {
   getClientConfig(){
     return this.clientData;
   }
+
+  setValidationData(validationData){
+    this.validationData = validationData;
+  }
+  getValidationData(){
+    return this.validationData;
+  }
+
 }
