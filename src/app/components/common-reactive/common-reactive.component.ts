@@ -24,6 +24,9 @@ export class CommonReactiveComponent implements OnInit {
     controlName : "gender", configName: "Gender"
   }];
   validationData: any;
+  showFirstName: any;
+  showLastName: any;
+  showGender: any;
 
   constructor(private fb: FormBuilder, private commonService: CommonService, private validationService: ValidationServiceService) { }
   commonForm: FormGroup;
@@ -31,10 +34,6 @@ export class CommonReactiveComponent implements OnInit {
 
   formCreate(){
     this.commonForm = this.fb.group({
-      // firstname : [''],
-      // lastname : [''],
-      // phone : [''],
-      // gender : ['']
       firstname : new FormControl(''),
       lastname : new FormControl(''),
       phone : new FormControl(''),
@@ -55,6 +54,9 @@ export class CommonReactiveComponent implements OnInit {
 
   setConfigfromDB() {
     this.validationData = this.commonService.getValidationData();
+    this.showFirstName = this.commonService.getFieldVisibility(this.validationData, "fName");
+    this.showLastName = this.commonService.getFieldVisibility(this.validationData, "lName");
+    this.showGender = this.commonService.getFieldVisibility(this.validationData, "Gender");
   }
 
   prepareValidation() {

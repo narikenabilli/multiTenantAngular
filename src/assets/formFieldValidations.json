@@ -20,7 +20,7 @@
     ]
   },
   "lName": {
-    "Allow": true,
+    "Allow": false,
     "validations": [
       {
         "propertyValidation": {

@@ -31,4 +31,12 @@ export class CommonService {
     return this.validationData;
   }
 
+  getFieldVisibility(resp, fieldName){
+    if(resp.hasOwnProperty(fieldName)){
+      return resp[fieldName].Allow;
+    } else {
+      return false;
+    }
+  }
+
 }
