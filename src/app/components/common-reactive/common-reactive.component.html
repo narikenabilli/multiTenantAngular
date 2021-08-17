@@ -1,0 +1,13 @@
+<form [formGroup]="commonForm" (ngSubmit)="submitForm()">
+  <label for="name">Name: </label>
+  <input id="firstname" type="text" formControlName="firstname" />
+  <input id="lastname" type="text" formControlName="lastname" />
+  <input id="tel" type="tel" formControlName="phone" />
+  <select id="gender" formControlName="gender">
+    <option value="-1">Select</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <button type="submit">Update Name</button>
+</form>

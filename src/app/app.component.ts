@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CommonService } from './services/utility/common.service';
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, HostBinding } from "@angular/core";
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
   tenantName: any;
   loadComponent: boolean;
 
-  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService){
+  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router){
   }
 
   @HostBinding("class.theme-client1") public client1Theme: boolean;
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit {
 
     observableArray.push(this.httpClient.get('/assets/ClientConfiguration.json'));
     observableArray.push(this.httpClient.get('/assets/DynamicFormControl.json'));
-
+    
     forkJoin(observableArray).subscribe((res: any) => {
       if (res && res[0]) {
         this.commonService.setClientConfig(res[0]);
@@ -53,5 +54,10 @@ export class AppComponent implements OnInit {
   enableThemes() {
     this.client1Theme = this.tenantService.getTenant() === Tenant.CLIENT1;
     this.client2Theme = this.tenantService.getTenant() === Tenant.CLIENT2;
+  }
+
+  navigation(event){
+    console.log(event, "event");
+    this.router.navigate([event], { state: { tenant: this.tenant } })
   }
 }

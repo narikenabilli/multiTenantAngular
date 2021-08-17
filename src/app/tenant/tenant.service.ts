@@ -33,7 +33,9 @@ export class TenantService {
   }
 }
 
+// defining the tenants, to be moved to a DB and all the tenants are to be defined there
 export enum Tenant {
   CLIENT1 = "client1",
-  CLIENT2 = "client2"
+  CLIENT2 = "client2",
+  CLIENT4 = "client4"
 }

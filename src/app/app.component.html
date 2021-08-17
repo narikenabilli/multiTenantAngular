@@ -1,3 +1,22 @@
+<nav>
+  <ul>
+    <li>
+      <a (click)="navigation('template-driven')">Template Driven</a>
+    </li>
+    <li>
+      <a (click)="navigation('reactive-form')">Reactive Form</a>
+    </li>
+  </ul>
+</nav>
+
 <p class="message">Welcome Tenant {{ tenant }}</p>
 
-<app-registrationform [tenant]="tenant" *ngIf="loadComponent"></app-registrationform>
+<router-outlet></router-outlet>
+
+<!-- If you want to directly call the component, use below -->
+<!-- <app-registrationform
+  [tenant]="tenant"
+  *ngIf="loadComponent"
+></app-registrationform> -->
+
+<!-- <app-common-reactive></app-common-reactive> -->

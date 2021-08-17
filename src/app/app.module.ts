@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
 import { CommonFormComponent } from './components/common-form/common-form.component';
+import { CommonReactiveComponent } from './components/common-reactive/common-reactive.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationformComponent,
-    CommonFormComponent
+    CommonFormComponent,
+    CommonReactiveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

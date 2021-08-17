@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonService } from './../services/utility/common.service';
 
@@ -12,11 +13,18 @@ export class RegistrationformComponent implements OnInit {
   @Input() tenant;
   tenantName: any;
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService, private router: Router) {
+    const currNav = this.router.getCurrentNavigation();
+    if(currNav.extras.state && currNav.extras.state.tenant){
+      this.tenant = currNav.extras.state.tenant;
+    }
+   }
 
   ngOnInit() {
     const regFormData = this.commonService.getFormData();
-    this.dynamicFormArray = regFormData["registrationForm"];
+    if(regFormData){
+      this.dynamicFormArray = regFormData["registrationForm"];
+    }
   }
 
 }
