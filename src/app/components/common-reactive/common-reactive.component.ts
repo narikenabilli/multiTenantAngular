@@ -18,6 +18,9 @@ export class CommonReactiveComponent implements OnInit {
     controlName : "lastname", configName: "lName"
   },
   {
+    controlName : "dob", configName: "dob"
+  },
+  {
     controlName : "phone", configName: "Phone"
   },
   {
@@ -27,6 +30,7 @@ export class CommonReactiveComponent implements OnInit {
   showFirstName: any;
   showLastName: any;
   showGender: any;
+  showDOB: any;
 
   constructor(private fb: FormBuilder, private commonService: CommonService, private validationService: ValidationServiceService) { }
   commonForm: FormGroup;
@@ -36,6 +40,7 @@ export class CommonReactiveComponent implements OnInit {
     this.commonForm = this.fb.group({
       firstname : new FormControl(''),
       lastname : new FormControl(''),
+      dob : new FormControl(''),
       phone : new FormControl(''),
       gender : new FormControl('male')
     })
@@ -57,6 +62,7 @@ export class CommonReactiveComponent implements OnInit {
     this.showFirstName = this.commonService.getFieldVisibility(this.validationData, "fName");
     this.showLastName = this.commonService.getFieldVisibility(this.validationData, "lName");
     this.showGender = this.commonService.getFieldVisibility(this.validationData, "Gender");
+    this.showDOB = this.commonService.getFieldVisibility(this.validationData, "dob");
   }
 
   prepareValidation() {

@@ -73,7 +73,7 @@ export class AppComponent implements OnInit {
   }
 
   navigation(event){
-    console.log(event, "event");
+    // console.log(event, "event");
     this.router.navigate([event], { state: { tenant: this.tenant } })
   }
 

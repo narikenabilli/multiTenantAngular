@@ -12,7 +12,7 @@ export class CommonFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.dynamicFormArray, "dynamic form");
+    // console.log(this.dynamicFormArray, "dynamic form");
   }
 
 }
