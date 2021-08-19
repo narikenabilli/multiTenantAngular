@@ -67,7 +67,11 @@ export class CommonReactiveComponent implements OnInit {
 
   prepareValidation() {
     this.validationService.addValidator(this.formFieldsArray, this.validationData, this.commonForm);
+  }
 
+  getErrorMessages(formControlName){
+    const errors = this.commonForm.get(formControlName).errors;
+    return this.validationService.setErrorMessages(errors, formControlName, this.formFieldsArray);
   }
 
   submitForm(){

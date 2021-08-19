@@ -41,6 +41,9 @@
         "propertyValidation": {
           "required": {
             "message": "Date of Birth is required"
+          },
+          "pattern": {
+            "message": "Date of Birth must be a valid date in the format YYYY-MM-DD"
           }
         }
       }
