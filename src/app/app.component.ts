@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   dynamicFormArray: any;
   tenantName: any;
   loadComponent: boolean;
+  displayLogo: any;
 
   constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService,){
   }
@@ -65,6 +66,19 @@ export class AppComponent implements OnInit {
 
   get tenant() : string {
     return this.tenantService.getTenant();
+  }
+
+  clientConfigLogo() {
+    // const logoPath = "../assets/logos/4.png";
+    const logoPath = this.commonService.getClientConfig();
+    if(logoPath){
+      Object.keys(logoPath).forEach( clientName => {
+        if(clientName == this.tenant){
+          this.displayLogo = logoPath[clientName].logo;
+        }
+      });
+    }
+    return this.displayLogo;
   }
 
   enableThemes() {
