@@ -32,6 +32,12 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
+    customLaunchers: {
+      GitlabHeadlessChrome: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
+      },
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
