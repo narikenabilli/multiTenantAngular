@@ -4,27 +4,29 @@ if no tenant is given in URL, client1 is displayed by default - done
 welcome message styles displayed as per tenant using angular HostBinding approach - done
 
 template driven form:
- being generated from json file(aka DB) with respect to multi tenancy  - done 
+ being generated from json file(aka DB) with respect to multi tenancy  - done
  feature configuration of field displaying from DB - done
  styles being driven from json file (aka db), added style for client 1 full name - done
 
 reactive driven form:
- with feature config  - done 
+ with feature config  - done
  common validations from json file (aka db),  - done
  error messages from DB - done
 
 i18:
  application level, so it can be changed on the fly with in the application - done
- 
 
 
-pending:
+
+Inprogress:
 
 branding:
-	logo
+	logo - done
 	styles
 
 common method for error and validation method - done
 add validation to template driven form
 add translate for validation messages
 
+
+session timeout of tenant
