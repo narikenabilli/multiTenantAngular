@@ -5,7 +5,7 @@ import { NgIdleService } from 'src/app/services/utility/ng-idle.service';
 @Component({
   selector: 'app-user-idle',
   templateUrl: './user-idle.component.html',
-  styleUrls: ['./user-idle.component.css'],
+  styleUrls: ['./user-idle.component.scss'],
   providers: [
     NgIdleService
   ]

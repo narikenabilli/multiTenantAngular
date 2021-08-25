@@ -5,7 +5,7 @@ import { CommonService } from './../services/utility/common.service';
 @Component({
   selector: 'app-registrationform',
   templateUrl: './registrationform.component.html',
-  styleUrls: ['./registrationform.component.css']
+  styleUrls: ['./registrationform.component.scss']
 })
 export class RegistrationformComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-common-form',
   templateUrl: './common-form.component.html',
-  styleUrls: ['./common-form.component.css']
+  styleUrls: ['./common-form.component.scss']
 })
 export class CommonFormComponent implements OnInit {
 

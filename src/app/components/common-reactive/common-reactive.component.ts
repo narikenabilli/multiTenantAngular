@@ -6,7 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'app-common-reactive',
   templateUrl: './common-reactive.component.html',
-  styleUrls: ['./common-reactive.component.css']
+  styleUrls: ['./common-reactive.component.scss']
 })
 export class CommonReactiveComponent implements OnInit {
 
