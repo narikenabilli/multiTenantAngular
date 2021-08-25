@@ -3,6 +3,7 @@
     "logo": "../assets/logos/3.jpg",
     "logoutUrl": "www.google.com",
     "About": "Client1 Content",
+    "navBar": "bg-primary",
     "sessionTimeout": 30000,
     "warningTimeout": 15000
   },
@@ -10,6 +11,7 @@
     "logo": "../assets/logos/4.png",
     "logoutUrl": "www.google.com",
     "About": "Client2 Content",
+    "navBar": "bg-secondary",
     "sessionTimeout": 20000,
     "warningTimeout": 10000
   }

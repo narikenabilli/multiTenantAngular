@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   tenantName: any;
   loadComponent: boolean;
   displayLogo: any;
+  navBackGround: any;
 
   constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService,){
   }
@@ -51,6 +52,12 @@ export class AppComponent implements OnInit {
     forkJoin(observableArray).subscribe((res: any) => {
       if (res && res[0]) {
         this.commonService.setClientConfig(res[0]);
+        Object.keys(res[0]).forEach( clientName => {
+          if(clientName == this.tenant){
+            this.displayLogo = res[0][clientName].logo;
+            this.navBackGround = res[0][clientName].navBar;
+          }
+        });
       }
       if (res && res[1]) {
         this.commonService.setFormData(res[1]);
@@ -66,19 +73,6 @@ export class AppComponent implements OnInit {
 
   get tenant() : string {
     return this.tenantService.getTenant();
-  }
-
-  clientConfigLogo() {
-    // const logoPath = "../assets/logos/4.png";
-    const logoPath = this.commonService.getClientConfig();
-    if(logoPath){
-      Object.keys(logoPath).forEach( clientName => {
-        if(clientName == this.tenant){
-          this.displayLogo = logoPath[clientName].logo;
-        }
-      });
-    }
-    return this.displayLogo;
   }
 
   enableThemes() {
