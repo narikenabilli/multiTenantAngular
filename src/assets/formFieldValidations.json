@@ -13,14 +13,14 @@
           },
           "maxLength": {
             "value": 10,
-            "message": "Min length 10"
+            "message": "Max length 10"
           }
         }
       }
     ]
   },
   "lName": {
-    "Allow": false,
+    "Allow": true,
     "validations": [
       {
         "propertyValidation": {

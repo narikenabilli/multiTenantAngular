@@ -1,6 +1,7 @@
 {
   "Template_Driven": "Template Driven",
   "Reactive_Form": "Reactive Form",
+  "Logout": "Logout",
   "Welcome_Tenant": "Welcome",
   "Registration_Form": "Registration Form"
 }

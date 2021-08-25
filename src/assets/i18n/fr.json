@@ -1,6 +1,7 @@
 {
-  "Template_Driven": "Template Driven fr",
-  "Reactive_Form": "Reactive Form fr",
+  "Template_Driven": "Formulaire de modèle",
+  "Reactive_Form": "Forme réactive",
+  "Logout": "Se déconnecter",
   "Welcome_Tenant": "Bienvenue",
   "Registration_Form": "Formulaire d'inscription"
 }
