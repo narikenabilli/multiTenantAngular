@@ -1,84 +1,97 @@
 <!-- Reusable template driven form, form controls can be driven from DB (as of now from DynamicFormControl.json) -->
 
-<section>
-  <form id="form">
-    <div class="row form">
-      <div class="col-md-12" *ngFor="let control of dynamicFormArray">
-        <div
-          *ngIf="
-            control.Allow &&
-            (control.Tenant == tenant || control.Tenant == 'default')
-          "
-        >
-          <div [ngSwitch]="control.Type">
-            <div *ngSwitchCase="'input'">
-              <div class="form-group row">
-                <div class="col-md-4">
-                  <label>{{ control.Label }}</label>
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    [ngClass]="control.ClassName"
-                  />
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <form id="form">
+            <div class="col-md-12" *ngFor="let control of dynamicFormArray">
+              <div
+                *ngIf="
+                  control.Allow &&
+                  (control.Tenant == tenant || control.Tenant == 'default')
+                "
+              >
+                <div [ngSwitch]="control.Type">
+                  <div *ngSwitchCase="'input'">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>{{ control.Label }}</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [ngClass]="control.ClassName"
+                        />
+                        <!-- <div class="valid-feedback">
+                          Username field is valid!
+                        </div>
+                        <div class="invalid-feedback">
+                          Username field cannot be blank!
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngSwitchCase="'date'">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>{{ control.Label }}</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="date" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>{{ control.Label }}</label>
+                      </div>
+                      <div class="col-md-8">
+                        <label
+                          class="btn btn-sm btn-outline-secondary"
+                          *ngFor="let val of control.Value.split(',')"
+                        >
+                          <input
+                            type="radio"
+                            class="btn-check"
+                            name="{{ control.ID }}"
+                            value="{{ val }}"
+                          />
+                          {{ val }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngSwitchCase="'select'">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>{{ control.Label }}</label>
+                      </div>
+                      <div class="col-md-8">
+                        <select class="form-control">
+                          <option value="-1">Select</option>
+                          <option
+                            *ngFor="let val of control.Value.split(',')"
+                            value="{{ val }}"
+                          >
+                            {{ val }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div *ngSwitchCase="'date'">
-              <div class="form-group row">
-                <div class="col-md-4">
-                  <label>{{ control.Label }}</label>
-                </div>
-                <div class="col-md-6">
-                  <input type="date" class="form-control" />
-                </div>
-              </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <div *ngSwitchCase="'radio'">
-              <div class="form-group row">
-                <div class="col-md-4">
-                  <label>{{ control.Label }}</label>
-                </div>
-                <div class="col-md-6">
-                  <label
-                    class="radio"
-                    *ngFor="let val of control.Value.split(',')"
-                  >
-                    <input
-                      type="radio"
-                      name="{{ control.ID }}"
-                      value="{{ val }}"
-                    />
-                    {{ val }}
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div *ngSwitchCase="'select'">
-              <div class="form-group row">
-                <div class="col-md-4">
-                  <label>{{ control.Label }}</label>
-                </div>
-                <div class="col-md-6">
-                  <select class="form-control">
-                    <option value="-1">Select</option>
-                    <option
-                      *ngFor="let val of control.Value.split(',')"
-                      value="{{ val }}"
-                    >
-                      {{ val }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
-      <div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
     </div>
-  </form>
-</section>
+  </div>
+</div>

@@ -5,6 +5,18 @@
 
 /** these styles are being applied/ called from DB (reffered in json file), these are global styles */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f3f5f9
+}
+
 .borderStyle {
   border: solid 1px red;
 }
