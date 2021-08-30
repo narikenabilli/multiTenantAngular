@@ -5,8 +5,8 @@ import { Component, OnInit, HostBinding } from "@angular/core";
 import { forkJoin } from "rxjs";
 import { Tenant, TenantService } from './tenant/tenant.service';
 import { TranslateService } from '@ngx-translate/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+// import { faUser } from '@fortawesome/free-solid-svg-icons';
+// import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,11 +24,14 @@ export class AppComponent implements OnInit {
   displayLogo: any;
   navBackGround: any;
   layoutStyle: any;
+  showMenu: boolean;
 
-  faUser = faUser;
+  // faUser = faUser;
 
-  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService, private library: FaIconLibrary) {
-    library.addIcons(faUser);
+  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService,
+    // private library: FaIconLibrary
+  ) {
+    // library.addIcons(faUser);
   }
 
   //applying the theme using Angular host binding
@@ -97,8 +100,6 @@ export class AppComponent implements OnInit {
   }
 
   menuClose() {
-  //   $('#sidebarCollapse').on('click', function() {
-  //   $('#sidebar, #content').toggleClass('active');
-  // });
+    this.showMenu = !this.showMenu;
   }
 }
