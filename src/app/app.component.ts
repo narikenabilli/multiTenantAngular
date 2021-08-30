@@ -5,6 +5,8 @@ import { Component, OnInit, HostBinding } from "@angular/core";
 import { forkJoin } from "rxjs";
 import { Tenant, TenantService } from './tenant/tenant.service';
 import { TranslateService } from '@ngx-translate/core';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,8 +23,12 @@ export class AppComponent implements OnInit {
   loadComponent: boolean;
   displayLogo: any;
   navBackGround: any;
+  layoutStyle: any;
 
-  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService,){
+  faUser = faUser;
+
+  constructor(private tenantService: TenantService, private httpClient: HttpClient, protected commonService: CommonService, private router: Router, private translate: TranslateService, private library: FaIconLibrary) {
+    library.addIcons(faUser);
   }
 
   //applying the theme using Angular host binding
@@ -56,6 +62,7 @@ export class AppComponent implements OnInit {
           if(clientName == this.tenant){
             this.displayLogo = res[0][clientName].logo;
             this.navBackGround = res[0][clientName].navBar;
+            this.layoutStyle = res[0][clientName].layoutStyle;
           }
         });
       }
@@ -87,5 +94,11 @@ export class AppComponent implements OnInit {
 
   changeLang(event: any){
      this.translate.use(event.target.value)
+  }
+
+  menuClose() {
+  //   $('#sidebarCollapse').on('click', function() {
+  //   $('#sidebar, #content').toggleClass('active');
+  // });
   }
 }

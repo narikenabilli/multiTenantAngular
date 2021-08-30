@@ -4,6 +4,7 @@
     "logoutUrl": "www.google.com",
     "About": "Client1 Content",
     "navBar": "bg-primary",
+    "layoutStyle": "layout1",
     "sessionTimeout": 30000,
     "warningTimeout": 15000
   },
@@ -12,6 +13,7 @@
     "logoutUrl": "www.google.com",
     "About": "Client2 Content",
     "navBar": "bg-secondary",
+    "layoutStyle": "layout2",
     "sessionTimeout": 20000,
     "warningTimeout": 10000
   }
