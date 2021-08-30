@@ -1,71 +1,48 @@
-<form class="form" [formGroup]="commonForm" (ngSubmit)="submitForm()">
-  <!-- <label for="name">Name: </label>
-  <input
-    id="firstname"
-    type="text"
-    formControlName="firstname"
-    [ngClass]="{
-      'is-invalid': submitted && f.firstname.errors.required
-    }"
-  />
-  {{ f.firstname.errors | json }}
-  <input id="lastname" type="text" formControlName="lastname" />
-  <input id="tel" type="tel" formControlName="phone" />
-  <select id="gender" formControlName="gender">
-    <option value="-1">Select</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-
-  <button type="submit" class="btn btn-success">Update Name</button> -->
-  <div class="form-row">
-    <div class="form-group col-5" *ngIf="showFirstName">
-      <label>First Name</label>
-      <input
-        type="text"
-        formControlName="firstname"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
-      />
-      <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
-        <!-- <div *ngIf="f.firstname.errors.required">First Name is required</div>
+<div class="bg-white p-5 rounded my-5 shadow-sm">
+  <form class="form" [formGroup]="commonForm" (ngSubmit)="submitForm()">
+    <div class="form-row">
+      <div class="form-group col-5" *ngIf="showFirstName">
+        <label>First Name</label>
+        <input
+          type="text"
+          formControlName="firstname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+        />
+        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+          <!-- <div *ngIf="f.firstname.errors.required">First Name is required</div>
         <div *ngIf="f.firstname.errors.minlength">Min Length 2 is required</div>
         <div *ngIf="f.firstname.errors.maxlength">Max Length is 10</div> -->
-        {{ getErrorMessages("firstname") }}
+          {{ getErrorMessages("firstname") }}
+        </div>
+      </div>
+      <div class="form-group col-5" *ngIf="showLastName">
+        <label>Last Name</label>
+        <input
+          type="text"
+          formControlName="lastname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+        />
+        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+          {{ getErrorMessages("lastname") }}
+        </div>
       </div>
     </div>
-    <div class="form-group col-5" *ngIf="showLastName">
-      <label>Last Name</label>
-      <input
-        type="text"
-        formControlName="lastname"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
-      />
-      <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
-        <!-- <div *ngIf="f.lastname.errors.required">Last Name is required</div> -->
-        {{ getErrorMessages("lastname") }}
+    <div class="form-row">
+      <div class="form-group col-5" *ngIf="showDOB">
+        <label>Date of Birth</label>
+        <input
+          type="date"
+          formControlName="dob"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+        />
+        <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+          {{ getErrorMessages("dob") }}
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-5" *ngIf="showDOB">
-      <label>Date of Birth</label>
-      <input
-        type="date"
-        formControlName="dob"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
-      />
-      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
-        <!-- <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
-        <div *ngIf="f.dob.errors.pattern">
-          Date of Birth must be a valid date in the format YYYY-MM-DD
-        </div> -->
-        {{ getErrorMessages("dob") }}
-      </div>
-    </div>
-    <!-- <div class="form-group col">
+      <!-- <div class="form-group col">
       <label>Email</label>
       <input
         type="text"
@@ -80,63 +57,25 @@
         </div>
       </div>
     </div> -->
-  </div>
-  <!-- <div class="form-row">
-    <div class="form-group col">
-      <label>Password</label>
-      <input
-        type="password"
-        formControlName="password"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-      />
-      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Password is required</div>
-        <div *ngIf="f.password.errors.minlength">
-          Password must be at least 6 characters
-        </div>
-      </div>
     </div>
-    <div class="form-group col">
-      <label>Confirm Password</label>
+
+    <div class="form-group form-check">
       <input
-        type="password"
-        formControlName="confirmPassword"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+        type="checkbox"
+        formControlName="acceptTerms"
+        id="acceptTerms"
+        class="form-check-input"
+        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }"
       />
-      <div
-        *ngIf="submitted && f.confirmPassword.errors"
-        class="invalid-feedback"
+      <label for="acceptTerms" class="form-check-label"
+        >Accept Terms & Conditions</label
       >
-        <div *ngIf="f.confirmPassword.errors.required">
-          Confirm Password is required
-        </div>
-        <div *ngIf="f.confirmPassword.errors.mustMatch">
-          Passwords must match
-        </div>
+      <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">
+        Accept Ts & Cs is required
       </div>
     </div>
-  </div> -->
-  <!-- <div class="form-group form-check">
-    <input
-      type="checkbox"
-      formControlName="acceptTerms"
-      id="acceptTerms"
-      class="form-check-input"
-      [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }"
-    />
-    <label for="acceptTerms" class="form-check-label"
-      >Accept Terms & Conditions</label
-    >
-    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">
-      Accept Ts & Cs is required
+    <div class="text-center">
+      <button class="btn btn-primary mr-1">Register</button>
     </div>
-  </div> -->
-  <div class="text-center">
-    <button class="btn btn-primary mr-1">Register</button>
-    <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">
-      Cancel
-    </button> -->
-  </div>
-</form>
+  </form>
+</div>
