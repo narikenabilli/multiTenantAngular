@@ -16,6 +16,9 @@ reactive driven form:
 i18:
  application level, so it can be changed on the fly with in the application - done
 
+Layout:
+there are 2 layout styles in the app, where the user can select the layout by passing the layout name from the json file (aka db)
+
 
 
 Inprogress:
@@ -29,4 +32,4 @@ add validation to template driven form
 add translate for validation messages
 
 
-session timeout of tenant
+session timeout of tenant - inprogress
